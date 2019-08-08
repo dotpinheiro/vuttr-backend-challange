@@ -14,10 +14,24 @@ class ToolController {
   }
   async store(req, res) {
     const tool = await Tool.create(req.body);
-    return res.json(tool);
+    return res.status(201).json(tool);
   }
-  async update(req, res) {}
+  async update(req, res) {
+    const { id } = req.params;
+    let tool = await Tool.findOneAndUpdate(id, req.body);
+    if (!tool) {
+      return res.status(400).json({ error: "This tool doest not exists" });
+    }
+    return res.status(200).json(tool);
+  }
 
-  async destroy(req, res) {}
+  async destroy(req, res) {
+    const { id } = req.params;
+    let tool = await Tool.findByIdAndDelete(id);
+    if (!tool) {
+      return res.status(400).json({ error: "This tool does not exists" });
+    }
+    return res.status(204).send();
+  }
 }
 module.exports = new ToolController();
