@@ -1,0 +1,21 @@
+{
+  "name": "vuttr-backend",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "description": "Very Useful Tools to Remember",
+  "author": "Felipe Pinheiro",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.8",
+    "require-dir": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
